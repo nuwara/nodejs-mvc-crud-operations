@@ -1,0 +1,36 @@
+<%- include("./partials/header") %>
+<div class="container">
+  <h1 class="text-center mt-5">Create New Record</h1>
+  <form
+    action="/employees"
+    method="post"
+    enctype="multipart/form-data"
+    class="w-75 mx-auto mt-5"
+  >
+    <div class="mb-3">
+      <label for="fullname" class="form-label">Full Name</label>
+      <input type="text" class="form-control" name="name" />
+    </div>
+
+    <div class="mb-3">
+      <label for="skills" class="form-label">Skills</label>
+      <input type="text" class="form-control" name="skills" />
+    </div>
+
+    <div class="mb-3">
+      <label for="roll" class="form-label">Roll</label>
+      <select name="roll" class="form-select">
+        <option value="Frond-End">Frond-End</option>
+        <option value="Back-End">Back-End</option>
+        <option value="Full-Sack">Full-Sack</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="image" class="form-label">Image</label>
+      <input type="file" class="form-control" name="image" />
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a href="/employees" class="btn btn-secondary">Back</a>
+  </form>
+</div>
+<%- include("./partials/footer") %>

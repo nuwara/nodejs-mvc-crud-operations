@@ -1,0 +1,61 @@
+<%- include("./partials/header") %>
+<div class="container">
+
+	<% if(success.length > 0){%>
+		<div class="alert alert-success" role="alert"><%=success%></div>
+    <% }%>
+
+  <div class="row mt-5 w-75">
+    <div class="col-8 mx-auto">
+      <a href="/employees/create" class="btn btn-primary">Add</a>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Skills</th>
+            <th>Roll</th>
+            <th>Image</th>
+            <th colspan="2">Operations</th>
+          </tr>
+        </thead>
+		<%if(employees.length > 0){%>
+        <tbody>
+          <% employees.forEach(employee=>{%>
+          <tr>
+            <td><%= employee.name %></td>
+            <td><%= employee.skills %></td>
+            <td><%= employee.roll %></td>
+            <td>
+              <%if(employee.image){%>
+              <img
+                src="<%= employee.image %>"
+                alt="uploaded image"
+                width="50"
+              />
+            </td>
+            <%}else{%>
+            <td>upload image</td>
+            <%}%>
+            <td>
+              <a class="btn btn-success" href="/employees/<%=employee.id%>"
+                >Edit</a
+              >
+            </td>
+            <td>
+              <form
+                action="/employees/<%=employee.id%>?_method=delete"
+                method="post">
+                <button type="submit" class="btn btn-danger">Delete</button>
+              </form>
+            </td>
+          </tr>
+          <%}) %>
+        </tbody>
+		<%}else{%>
+			<h3 class="my-5 text-danger">No Record to display</h3>
+		<%}%>
+      </table>
+    </div>
+  </div>
+</div>
+<%- include("./partials/footer") %>

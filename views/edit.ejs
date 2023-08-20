@@ -1,0 +1,46 @@
+<%- include("./partials/header") %>
+<div class="container">
+  <h1 class="text-center mt-5">Create New Record</h1>
+  <form
+    action="/employees/<%= result.id%>?_method=put"
+    method="post"
+    enctype="multipart/form-data"
+    class="w-75 mx-auto mt-5"
+  >
+    <div class="mb-3">
+      <label for="fullname" class="form-label">Full Name</label>
+      <input
+        type="text"
+        class="form-control"
+        name="name"
+        value="<%=result.name%>"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="skills" class="form-label">Skills</label>
+      <input
+        type="text"
+        class="form-control"
+        name="skills"
+        value="<%=result.skills%>"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="skills" class="form-label">Roll</label>
+      <input
+        type="text"
+        class="form-control"
+        name="roll"
+        value="<%=result.roll%>"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="image" class="form-label">Image</label>
+      <input type="file" class="form-control" name="image" />
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+    <a href="/employees" class="btn btn-secondary">Back</a>
+  </form>
+</div>
+<%- include("./partials/footer") %>
